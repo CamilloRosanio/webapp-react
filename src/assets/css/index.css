@@ -1,0 +1,42 @@
+/******************************************
+# RESET
+/******************************************/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+  text-decoration: none;
+
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+/******************************************
+  # UTILITY
+  /******************************************/
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 1200px;
+}
+
+
+
+/******************************************
+  # DEBUG
+  /******************************************/
+
+.debug {
+  padding: 1rem;
+  background-color: aqua;
+  border: 1px dotted rgb(0, 0, 0);
+}
