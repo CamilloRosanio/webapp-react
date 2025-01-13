@@ -8,6 +8,10 @@ const apiUrlRoot = import.meta.env.VITE_APIURL;
 const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 
+// IMPORT COMPONENTS
+import { voteToStars } from '../assets/utility_functions/VoteToStars';
+
+
 // COMPONENT EXPORT
 
 export default function HomePage() {
@@ -42,7 +46,7 @@ export default function HomePage() {
         <div className="container">
             <h1 className="debug">Home</h1>
             {movies?.movies.map(movie =>
-                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title}`}</Link></p>
+                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
             )}
         </div>
     </>

@@ -35,7 +35,9 @@ function App() {
 
             {/* 404 NOT FOUND PAGE */}
             <Route path="*" Component={NotFoundPage}></Route>
+
           </Route>
+
         </Routes>
       </BrowserRouter >
     </>
