@@ -7,10 +7,9 @@ import LayoutDefault from './layouts/LayoutDefault';
 
 
 // IMPORT PAGES
-import HomePage from "./pages/HomePage";
-// import AboutPage from "./pages/AboutPage";
-// import PostsPage from "./pages/PostsPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import HomePage from "./pages/HomePage";
+// import HomePage from "./pages/BookDetailsPage";
 
 
 // COMPONENT CONTENT
@@ -27,8 +26,7 @@ function App() {
 
             {/* ROUTES */}
             <Route index Component={HomePage}></Route>
-            {/* <Route path="/about" Component={AboutPage}></Route> */}
-            {/* <Route path="/posts" Component={PostsPage}></Route> */}
+            {/* <Route path=":id" Component={BookDetailsPage}></Route> */}
 
             {/* 404 NOT FOUND PAGE */}
             <Route path="*" Component={NotFoundPage}></Route>

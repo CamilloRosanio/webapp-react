@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 // IMPORT COMPONENTS
 import Navbar from "./partials/Navbar";
+import Footer from "./partials/Footer";
 
 
 // COMPONENT EXPORT
@@ -21,11 +22,7 @@ export default function DefaultLayout() {
                 </div>
             </main>
 
-            <footer className="debug">
-                <div className="container">
-                    Footer
-                </div>
-            </footer>
+            <Footer />
         </div>
     </>
 }
