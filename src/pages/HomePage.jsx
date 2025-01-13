@@ -9,7 +9,7 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 
 // IMPORT COMPONENTS
-import { voteToStars } from '../assets/utility_functions/VoteToStars';
+import { voteToStars } from '../assets/utility_functions/voteToStars';
 
 
 // COMPONENT EXPORT
