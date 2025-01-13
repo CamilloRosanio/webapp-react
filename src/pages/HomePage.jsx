@@ -1,5 +1,6 @@
 // UTILITY
 import { useState, useEffect } from 'react';
+import { Link } from "react-router";
 
 
 // ENV IMPORTS
@@ -12,8 +13,8 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 export default function HomePage() {
 
     // // USE-STATE DATA
-    const [moviesList, setMoviesList] = useState({
-        moviesList: [],
+    const [movies, setMovies] = useState({
+        movies: [],
     });
 
     // INIT USE-EFFECT
@@ -28,7 +29,7 @@ export default function HomePage() {
         })
             .then(res => res.json())
             .then((data) => {
-                setMoviesList(data);
+                setMovies(data);
                 console.log(data);
                 console.log('AJAX request: at ' + apiUrlRoot + apiSubPath);
             })
@@ -40,8 +41,8 @@ export default function HomePage() {
     return <>
         <div className="container">
             <h1 className="debug">Home</h1>
-            {moviesList.movies.map(movie =>
-                <p key={movie.id} className='debug'>{movie.title}</p>
+            {movies?.movies.map(movie =>
+                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{movie.title}</Link></p>
             )}
         </div>
     </>
