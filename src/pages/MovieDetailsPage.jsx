@@ -47,7 +47,7 @@ export default function MovieDetailsPage() {
             <h1 className="debug">Movie details</h1>
             {<div>
                 <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title}`}</p>
-                <Link to="/">Back to Home</Link>
+                <button className='debug'><Link to="/">Back to Home</Link></button>
             </div>}
         </div>
     </>

@@ -42,7 +42,7 @@ export default function HomePage() {
         <div className="container">
             <h1 className="debug">Home</h1>
             {movies?.movies.map(movie =>
-                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{movie.title}</Link></p>
+                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title}`}</Link></p>
             )}
         </div>
     </>
