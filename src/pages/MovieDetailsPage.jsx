@@ -88,7 +88,7 @@ export default function MovieDetailsPage() {
                     </div>
 
                     <Link to="/" className='link'>
-                        <button className='button'>Back to List</button>
+                        <button className='button bottom'>Back to List</button>
                     </Link>
                 </div>
                 :

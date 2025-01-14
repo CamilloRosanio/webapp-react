@@ -287,7 +287,7 @@ h1 {
   border-right: 2px solid var(--grey-m);
 }
 
-.showMovie .button {
+.bottom.button {
   margin-top: var(--space-m);
   margin-bottom: var(--space-l);
 }
