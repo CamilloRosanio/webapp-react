@@ -93,7 +93,7 @@ export default function HomePage() {
 
                     {/* FILTER GENRE */}
                     <select value={selectedGenre} onChange={handleGenreChange} className='input'>
-                        <option value="">Select Genre</option>
+                        <option value="">Select genre</option>
                         {genres.map((genre, index) => (
                             <option key={index} value={genre}>{genre}</option>
                         ))}

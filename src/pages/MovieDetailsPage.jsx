@@ -90,7 +90,7 @@ export default function MovieDetailsPage() {
                             <div key={review.id} className='review'>
                                 <h4>{review.name}</h4>
                                 <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                                <p>{review.text}</p>
+                                <p className='reviewText'>{`${review.text}..`}</p>
                             </div>
 
                         ))}

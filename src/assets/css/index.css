@@ -34,6 +34,7 @@
 
   --grey-l: rgb(190, 190, 190);
   --grey-m: rgb(77, 77, 77);
+  --grey-d: rgb(43, 43, 43);
 
   --container-l: 1000px;
   --container-m: 750px;
@@ -293,6 +294,10 @@ h1 {
   margin-top: var(--space-m);
 }
 
+.movieDetailsButtons .input {
+  font-weight: bold;
+}
+
 
 
 /******************************************
@@ -309,18 +314,31 @@ h1 {
   gap: var(--space-l);
   white-space: nowrap;
   padding-bottom: var(--space-m);
-  margin-bottom: var(--space-m);
+  margin-bottom: var(--space-l);
 }
 
 .review {
   display: flex;
   flex-direction: column;
   gap: .5rem;
-  padding-right: var(--space-m);
-  /* margin-right: var(--space-m); */
-  border-right: 2px solid var(--grey-m);
+  padding: var(--space-m);
+
+  min-width: 25vw;
+  max-width: 35vw;
+  height: auto;
+
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+  background-color: var(--grey-d);
+
+  overflow-y: auto;
 }
 
+p.reviewText {
+  text-wrap: wrap;
+  line-height: 1.4rem
+}
 
 
 /******************************************
