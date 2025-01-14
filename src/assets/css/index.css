@@ -86,6 +86,31 @@ main {
 
 
 /******************************************
+# OVERFLOW SCROLLBAR
+******************************************/
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey-m);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--secondary-l);
+}
+
+
+
+/******************************************
 # GENERAL
 ******************************************/
 
@@ -103,6 +128,7 @@ header {
 }
 
 footer {
+  color: var(--grey-l);
   background-color: var(--dark-bg);
   font-weight: medium;
   padding-top: var(--space-s);
@@ -260,6 +286,13 @@ h1 {
   padding-bottom: var(--space-s);
 }
 
+.movieDetailsButtons {
+  display: flex;
+  justify-content: start;
+  gap: var(--space-s);
+  margin-top: var(--space-m);
+}
+
 
 
 /******************************************
@@ -276,6 +309,7 @@ h1 {
   gap: var(--space-l);
   white-space: nowrap;
   padding-bottom: var(--space-m);
+  margin-bottom: var(--space-m);
 }
 
 .review {
@@ -287,10 +321,6 @@ h1 {
   border-right: 2px solid var(--grey-m);
 }
 
-.bottom.button {
-  margin-top: var(--space-m);
-  margin-bottom: var(--space-l);
-}
 
 
 /******************************************

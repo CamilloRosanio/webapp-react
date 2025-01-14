@@ -30,7 +30,7 @@ export default function MovieDetailsPage() {
         ajaxShow();
     }, []);
 
-    // AJAX REQUEST - INDEX
+    // AJAX REQUEST - SHOW
     const ajaxShow = () => {
         fetch(apiUrlRoot + apiSubPath + "/" + id, {
             method: 'GET',
@@ -52,10 +52,6 @@ export default function MovieDetailsPage() {
                 <div className='showMovie'>
                     <h1>Movie details</h1>
 
-                    <Link to="/" className='link'>
-                        <button className='button'>Back to List</button>
-                    </Link>
-
                     {/* MOVIE DETAILS */}
                     <div className='movieDetails'>
 
@@ -66,10 +62,23 @@ export default function MovieDetailsPage() {
 
                         {/* DETAILS CONTENT */}
                         <div className='movieDetailsContent'>
-                            <h2>{movie.title}</h2>
-                            <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                            <p>• {movie.genre}</p>
-                            <p>{movie.abstract}</p>
+                            <div>
+                                <h2>{movie.title}</h2>
+                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                                <p>• {movie.genre}</p>
+                                <p>{movie.abstract}</p>
+                            </div>
+
+                            <div className='movieDetailsButtons'>
+                                <Link to="/" className='link'>
+                                    <button className='input'>Leave review</button>
+                                </Link>
+
+                                <Link to="/" className='link'>
+                                    <button className='button'>Back to List</button>
+                                </Link>
+                            </div>
+
                         </div>
                     </div>
 
@@ -86,10 +95,6 @@ export default function MovieDetailsPage() {
 
                         ))}
                     </div>
-
-                    <Link to="/" className='link'>
-                        <button className='button bottom'>Back to List</button>
-                    </Link>
                 </div>
                 :
                 <h1>{`Page not found :(`}</h1>}
