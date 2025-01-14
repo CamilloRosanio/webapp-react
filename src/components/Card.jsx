@@ -1,11 +1,29 @@
+// UTILITY
+import { Link } from "react-router";
+
+
+// IMPORT COMPONENTS
+import { voteToStars } from '../assets/utility_functions/voteToStars';
+
+
 // COMPONENT EXPORT
 
-export default function Footer() {
+export default function Footer({ id, image, title, vote }) {
     return <>
-        <div className="card">
-            <div className="container">
-                Footer
+        <Link to={"/" + id}>
+            <div className='card' key={id}>
+
+                {/* CARD IMAGE */}
+                <div className='cardImageContainer'>
+                    <img src={`${image}`} alt="" className='cardImage' />
+                </div>
+
+                {/* CARD CONTENT */}
+                <div className='cardContent'>
+                    <h3>{`${title}`}</h3>
+                    <p className='cardStars'>{`${voteToStars(vote)}`}</p>
+                </div>
             </div>
-        </div>
+        </Link>
     </>
 }

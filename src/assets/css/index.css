@@ -1,6 +1,6 @@
 /******************************************
 # RESET
-/******************************************/
+******************************************/
 
 * {
   box-sizing: border-box;
@@ -17,9 +17,14 @@
 
 /******************************************
 # CUSTOM PROPERTIES
-/******************************************/
+******************************************/
 
 :root {
+  --primary-color: white;
+
+  --secondary: rgb(255, 0, 0);
+  --secondary-l: rgb(207, 0, 0);
+
   --space-l: 3rem;
   --space-m: 2rem;
   --space-s: 1rem;
@@ -47,7 +52,7 @@
 
 /******************************************
 # UTILITY
-/******************************************/
+******************************************/
 
 .wrapper {
   display: flex;
@@ -65,18 +70,28 @@ main {
 }
 
 .link {
-  color: white;
+  color: var(--primary-color);
+}
+
+.button {
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: bold;
+  padding: .5rem 1rem;
+  border: 2px solid var(--secondary-l);
+  border-radius: 25px;
+  background-color: var(--main-bg);
 }
 
 
 
 /******************************************
 # GENERAL
-/******************************************/
+******************************************/
 
 body {
   background-color: var(--main-bg);
-  color: white;
+  color: var(--primary-color);
 }
 
 header {
@@ -102,8 +117,13 @@ h1 {
 
 
 /******************************************
-  # ELEMENTS
-  /******************************************/
+  # HOME
+******************************************/
+
+.brand {
+  font-size: 1.5rem;
+  color: var(--secondary);
+}
 
 .filterControl {
   padding-top: var(--space-s);
@@ -122,7 +142,7 @@ h1 {
 }
 
 .card {
-  color: white;
+  color: var(--primary-color);
   position: relative;
 }
 
@@ -156,6 +176,12 @@ h1 {
   color: goldenrod;
   font-size: 1.3rem;
 }
+
+
+
+/******************************************
+  # MOVIE DETAILS
+******************************************/
 
 .movieDetails {
   display: flex;
@@ -210,7 +236,7 @@ h1 {
 
 /******************************************
   # DEBUG
-  /******************************************/
+******************************************/
 
 .debug {
   padding: 1rem;

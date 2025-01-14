@@ -8,7 +8,7 @@ export default function Navbar({ children }) {
     return <>
         <nav>
             <div className="container">
-                <NavLink to="/" className="link">Sgnepflix</NavLink>
+                <NavLink to="/" className="brand">Sgnepflix</NavLink>
             </div>
         </nav>
     </>

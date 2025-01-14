@@ -51,10 +51,10 @@ export default function MovieDetailsPage() {
             {movie.id ?
                 <div>
                     <h1>Movie details</h1>
-                    <div>
-                        <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</p>
-                        <button className='debug'><Link to="/">Back to List</Link></button>
-                    </div>
+
+                    <Link to="/" className='link'>
+                        <button className='button'>Back to List</button>
+                    </Link>
 
                     {/* MOVIE DETAILS */}
                     <div className='movieDetails'>

@@ -10,6 +10,7 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 // IMPORT COMPONENTS
 import { voteToStars } from '../assets/utility_functions/voteToStars';
+import Card from '../components/Card';
 
 
 // COMPONENT EXPORT
@@ -53,27 +54,15 @@ export default function HomePage() {
 
             {/* MOVIES LIST */}
             <div className='resultsSection'>
-                {/* {movies?.movies.map(movie =>
-                    <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
-                )} */}
 
                 {/* CARDS */}
                 {movies?.movies.map(movie =>
-                    <Link to={"/" + movie.id}>
-                        <div className='card' key={movie.id}>
-
-                            {/* CARD IMAGE */}
-                            <div className='cardImageContainer'>
-                                <img src={`${movie.image}`} alt="" className='cardImage' />
-                            </div>
-
-                            {/* CARD CONTENT */}
-                            <div className='cardContent'>
-                                <h3>{`${movie.title}`}</h3>
-                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                            </div>
-                        </div>
-                    </Link>
+                    <Card
+                        id={movie.id}
+                        image={movie.image}
+                        title={movie.title}
+                        vote={movie.vote_avg}
+                    />
                 )}
             </div>
         </div>
