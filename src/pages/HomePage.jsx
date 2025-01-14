@@ -44,7 +44,7 @@ export default function HomePage() {
 
     return <>
         <div className="container">
-            <h1 className="debug">Home</h1>
+            <h1 className="debug">Movies</h1>
             {movies?.movies.map(movie =>
                 <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
             )}
