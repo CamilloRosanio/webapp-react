@@ -125,14 +125,6 @@ h1 {
   color: var(--secondary);
 }
 
-.filterControl {
-  padding-top: var(--space-s);
-  padding-bottom: var(--space-s);
-
-  border-top: 1px solid var(--grey-m);
-  border-bottom: 1px solid var(--grey-m);
-}
-
 .resultsSection {
   display: flex;
   flex-wrap: wrap;
@@ -175,6 +167,39 @@ h1 {
 .cardStars {
   color: goldenrod;
   font-size: 1.3rem;
+}
+
+
+
+/******************************************
+  # FILTERS
+******************************************/
+
+.filterControl {
+  display: flex;
+  justify-content: space-between;
+
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+
+  border-top: 1px solid var(--grey-m);
+  border-bottom: 1px solid var(--grey-m);
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.input {
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: .5rem 1rem;
+  border: 2px solid var(--grey-l);
+  border-radius: 25px;
+  background-color: var(--main-bg);
 }
 
 
