@@ -335,6 +335,13 @@ h1 {
   overflow-y: auto;
 }
 
+.reviewName {
+  display: flex;
+  gap: var(--space-s);
+  justify-content: start;
+  align-items: center;
+}
+
 p.reviewText {
   text-wrap: wrap;
   line-height: 1.4rem

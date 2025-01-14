@@ -88,8 +88,10 @@ export default function MovieDetailsPage() {
                         {movie.reviews.map((review) => (
 
                             <div key={review.id} className='review'>
-                                <h4>{review.name}</h4>
-                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                                <div className="reviewName">
+                                    <h4>{review.name}</h4>
+                                    <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                                </div>
                                 <p className='reviewText'>{`${review.text}..`}</p>
                             </div>
 
