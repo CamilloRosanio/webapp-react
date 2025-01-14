@@ -84,6 +84,10 @@ main {
   background-color: var(--main-bg);
 }
 
+.hidden {
+  display: none;
+}
+
 
 
 /******************************************
@@ -235,6 +239,10 @@ h1 {
   # MOVIE DETAILS
 ******************************************/
 
+.showMovie {
+  position: relative;
+}
+
 .movieDetails {
   display: flex;
   gap: var(--space-l);
@@ -346,6 +354,18 @@ p.reviewText {
   text-wrap: wrap;
   line-height: 1.4rem
 }
+
+
+
+/******************************************
+  # STORE REVIEW FORM
+******************************************/
+
+.reviewFormContainer {
+  background-color: aqua;
+  margin-bottom: var(--space-l);
+}
+
 
 
 /******************************************

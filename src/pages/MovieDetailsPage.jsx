@@ -21,9 +21,8 @@ export default function MovieDetailsPage() {
     const { id: id } = useParams();
 
     // USE-STATE DATA
-    const [movie, setMovie] = useState({
-        movieDetails: [],
-    });
+    const [movie, setMovie] = useState({ movieDetails: [] });
+    const [hideForm, setHideForm] = useState(true);
 
     // INIT USE-EFFECT
     useEffect(() => {
@@ -46,10 +45,28 @@ export default function MovieDetailsPage() {
             })
     };
 
+    // HIDDEN REVIEW FORM
+    const showReviewForm = () => {
+        if (hideForm) setHideForm(false);
+        const formElement = document.getElementById('reviewForm');
+        formElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    const hideReviewForm = () => {
+        if (!hideForm) setHideForm(true);
+        const formElement = document.getElementById('showMovie');
+        showMovie.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // AJAX REQUEST - STORE
+    const ajaxStore = () => {
+        alert('Store review');
+    }
+
     return <>
         <div className="container">
             {movie.id ?
-                <div className='showMovie'>
+                <div className='showMovie' id='showMovie'>
                     <h1>Movie details</h1>
 
                     {/* MOVIE DETAILS */}
@@ -69,16 +86,24 @@ export default function MovieDetailsPage() {
                                 <p>{movie.abstract}</p>
                             </div>
 
+                            {/* BUTTONS */}
                             <div className='movieDetailsButtons'>
-                                <Link to="/" className='link'>
-                                    <button className='input'>Leave review</button>
-                                </Link>
+                                <button className='input' onClick={showReviewForm}>Leave review</button>
 
                                 <Link to="/" className='link'>
                                     <button className='button'>Back to List</button>
                                 </Link>
                             </div>
 
+                        </div>
+                    </div>
+
+                    {/* REVIEW FORM */}
+                    <div id='reviewForm'>
+                        <div className={hideForm ? 'reviewFormContainer hidden' : 'reviewFormContainer'}>
+                            ciao
+
+                            <button className='button' onClick={hideReviewForm}>Close</button>
                         </div>
                     </div>
 
