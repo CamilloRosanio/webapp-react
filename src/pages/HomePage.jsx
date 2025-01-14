@@ -34,8 +34,8 @@ export default function HomePage() {
             .then(res => res.json())
             .then((data) => {
                 setMovies(data);
-                console.log(data);
-                console.log('AJAX request: at ' + apiUrlRoot + apiSubPath);
+                // console.log(data);
+                console.log('AJAX INDEX request: at ' + apiUrlRoot + apiSubPath);
             })
             .catch((error) => {
                 console.log('Error while fetching content')

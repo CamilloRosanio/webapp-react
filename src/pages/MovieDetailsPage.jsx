@@ -38,8 +38,8 @@ export default function MovieDetailsPage() {
             .then(res => res.json())
             .then((data) => {
                 setMovie(data);
-                console.log(data);
-                console.log('AJAX request: at ' + apiUrlRoot + apiSubPath + "/" + id);
+                // console.log(data);
+                console.log('AJAX SHOW request: at ' + apiUrlRoot + apiSubPath + "/" + id);
             })
             .catch((error) => {
                 console.log('Error while fetching content')
