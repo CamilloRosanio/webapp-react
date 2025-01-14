@@ -68,6 +68,7 @@ export default function MovieDetailsPage() {
                         <div className='movieDetailsContent'>
                             <h2>{movie.title}</h2>
                             <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                            <p>• {movie.genre}</p>
                             <p>{movie.abstract}</p>
                         </div>
                     </div>
