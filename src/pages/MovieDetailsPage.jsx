@@ -53,7 +53,7 @@ export default function MovieDetailsPage() {
                     <h1 className="debug">Movie details</h1>
                     <div>
                         <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</p>
-                        <button className='debug'><Link to="/">Back to Home</Link></button>
+                        <button className='debug'><Link to="/">Back to List</Link></button>
                     </div>
                 </div>
                 :

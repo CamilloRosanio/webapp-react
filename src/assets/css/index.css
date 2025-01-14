@@ -16,6 +16,35 @@
 
 
 /******************************************
+# CUSTOM PROPERTIES
+/******************************************/
+
+:root {
+  --space-l: 3rem;
+  --space-m: 2rem;
+  --space-s: 1rem;
+
+  --main-bg: rgb(26, 26, 26);
+  --dark-bg: rgb(17, 17, 17);
+
+  --grey-m: rgb(77, 77, 77);
+
+  --container-l: 1000px;
+  --container-m: 750px;
+  --container-s: 300px;
+
+  --results-gap-l: 50px;
+  --results-gap-m: 40px;
+  --results-gap-s: 20px;
+
+  --card-w-l: 299px;
+  --card-w-m: 300px;
+  --card-w-s: 300px;
+}
+
+
+
+/******************************************
 # UTILITY
 /******************************************/
 
@@ -30,10 +59,101 @@ main {
 }
 
 .container {
-  width: 1000px;
+  width: var(--container-l);
   margin: auto;
 }
 
+.link {
+  color: white;
+}
+
+
+
+/******************************************
+# GENERAL
+/******************************************/
+
+body {
+  background-color: var(--main-bg);
+  color: white;
+}
+
+header {
+  background-color: var(--dark-bg);
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+}
+
+footer {
+  background-color: var(--dark-bg);
+  font-weight: medium;
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+}
+
+h1 {
+  padding-top: var(--space-m);
+  padding-bottom: var(--space-m);
+}
+
+
+
+/******************************************
+  # ELEMENTS
+  /******************************************/
+
+.filterControl {
+  padding-top: var(--space-s);
+  padding-bottom: var(--space-s);
+
+  border-top: 1px solid var(--grey-m);
+  border-bottom: 1px solid var(--grey-m);
+}
+
+.resultsSection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--results-gap-l);
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+
+.card {
+  color: white;
+}
+
+.cardImageContainer {
+  width: var(--card-w-l);
+  aspect-ratio: 1 / 1.3;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.cardImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-s);
+  text-align: center;
+  gap: var(--results-gap-s) / 2;
+}
+
+.cardStars {
+  color: goldenrod;
+  font-size: 1.5rem;
+}
 
 
 /******************************************
@@ -43,5 +163,6 @@ main {
 .debug {
   padding: 1rem;
   background-color: aqua;
-  border: 1px dotted rgb(0, 0, 0);
+  color: black;
+  border: 2px solid rgb(255, 0, 0);
 }

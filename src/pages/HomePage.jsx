@@ -44,10 +44,35 @@ export default function HomePage() {
 
     return <>
         <div className="container">
-            <h1 className="debug">Movies</h1>
-            {movies?.movies.map(movie =>
-                <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
-            )}
+            <h1>Movies</h1>
+
+            {/* FILTERS CONTROL */}
+            <div className='filterControl'>
+                <p>filters control</p>
+            </div>
+
+            {/* MOVIES LIST */}
+            <div className='resultsSection'>
+                {/* {movies?.movies.map(movie =>
+                    <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
+                )} */}
+
+                {movies?.movies.map(movie =>
+                    <div className='card'>
+                        <div className='cardImageContainer'>
+                            <img src={`${movie.image}`} alt="" className='cardImage' />
+                        </div>
+
+                        <div className='cardContent'>
+                            <h3>{`${movie.title}`}</h3>
+                            <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                        </div>
+                        {/* <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p> */}
+                    </div>
+
+
+                )}
+            </div>
         </div>
     </>
 }

@@ -6,10 +6,9 @@ import { NavLink } from "react-router";
 
 export default function Navbar({ children }) {
     return <>
-        <nav className="debug">
+        <nav>
             <div className="container">
-                <NavLink to="/" className="debug">Sgnepflix</NavLink>
-                {/* <NavLink to="/movies/:id" className="debug">Detail</NavLink> */}
+                <NavLink to="/" className="link">Sgnepflix</NavLink>
             </div>
         </nav>
     </>
