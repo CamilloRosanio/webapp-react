@@ -27,6 +27,7 @@
   --main-bg: rgb(26, 26, 26);
   --dark-bg: rgb(17, 17, 17);
 
+  --grey-l: rgb(190, 190, 190);
   --grey-m: rgb(77, 77, 77);
 
   --container-l: 1000px;
@@ -122,11 +123,12 @@ h1 {
 
 .card {
   color: white;
+  position: relative;
 }
 
 .cardImageContainer {
   width: var(--card-w-l);
-  aspect-ratio: 1 / 1.3;
+  aspect-ratio: 1 / 1.4;
 
   position: relative;
   overflow: hidden;
@@ -152,8 +154,58 @@ h1 {
 
 .cardStars {
   color: goldenrod;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
+
+.movieDetails {
+  display: flex;
+  gap: var(--space-l);
+
+  padding-top: var(--space-l);
+  padding-bottom: var(--space-l);
+}
+
+.movieDetailsImageContainer {
+  width: 30%;
+  aspect-ratio: 1 / 1.4;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.movieDetailsImage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movieDetailsContent {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.movieDetailsContent h2 {
+  font-size: 2rem;
+  padding-bottom: var(--space-s);
+}
+
+.movieDetailsContent .cardStars {
+  font-size: 2rem;
+  color: goldenrod;
+  padding-bottom: var(--space-m);
+}
+
+.movieDetailsContent p {
+  font-size: 1.2rem;
+  color: var(--grey-l);
+  padding-bottom: var(--space-s);
+}
+
 
 
 /******************************************

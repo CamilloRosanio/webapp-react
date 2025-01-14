@@ -57,20 +57,23 @@ export default function HomePage() {
                     <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p>
                 )} */}
 
+                {/* CARDS */}
                 {movies?.movies.map(movie =>
-                    <div className='card'>
-                        <div className='cardImageContainer'>
-                            <img src={`${movie.image}`} alt="" className='cardImage' />
+                    <Link to={"/" + movie.id}>
+                        <div className='card' key={movie.id}>
+
+                            {/* CARD IMAGE */}
+                            <div className='cardImageContainer'>
+                                <img src={`${movie.image}`} alt="" className='cardImage' />
+                            </div>
+
+                            {/* CARD CONTENT */}
+                            <div className='cardContent'>
+                                <h3>{`${movie.title}`}</h3>
+                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                            </div>
                         </div>
-
-                        <div className='cardContent'>
-                            <h3>{`${movie.title}`}</h3>
-                            <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                        </div>
-                        {/* <p key={movie.id} className='debug'><Link to={"/" + movie.id}>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</Link></p> */}
-                    </div>
-
-
+                    </Link>
                 )}
             </div>
         </div>

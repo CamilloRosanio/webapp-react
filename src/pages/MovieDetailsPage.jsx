@@ -50,14 +50,30 @@ export default function MovieDetailsPage() {
         <div className="container">
             {movie.id ?
                 <div>
-                    <h1 className="debug">Movie details</h1>
+                    <h1>Movie details</h1>
                     <div>
                         <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</p>
                         <button className='debug'><Link to="/">Back to List</Link></button>
                     </div>
+
+                    {/* MOVIE DETAILS */}
+                    <div className='movieDetails'>
+
+                        {/* DETAILS IMAGE */}
+                        <div className='movieDetailsImageContainer'>
+                            <img src={`${movie.image}`} alt="" className='movieDetailsImage' />
+                        </div>
+
+                        {/* DETAILS CONTENT */}
+                        <div className='movieDetailsContent'>
+                            <h2>{movie.title}</h2>
+                            <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                            <p>{movie.abstract}</p>
+                        </div>
+                    </div>
                 </div>
                 :
-                <h1 className="debug">No results</h1>}
+                <h1>{`Page not found :(`}</h1>}
         </div>
     </>
 }
