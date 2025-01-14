@@ -48,15 +48,16 @@ export default function MovieDetailsPage() {
 
     return <>
         <div className="container">
-            <h1 className="debug">Movie details</h1>
-
             {movie.id ?
                 <div>
-                    <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</p>
-                    <button className='debug'><Link to="/">Back to Home</Link></button>
+                    <h1 className="debug">Movie details</h1>
+                    <div>
+                        <p key={movie.id} className='debug'>{`ID: ${movie.id} - ${movie.title} - VOTE: ${voteToStars(movie.vote_avg)}`}</p>
+                        <button className='debug'><Link to="/">Back to Home</Link></button>
+                    </div>
                 </div>
                 :
-                <p className='debug'>Zero results found</p>}
+                <h1 className="debug">No results</h1>}
         </div>
     </>
 }
