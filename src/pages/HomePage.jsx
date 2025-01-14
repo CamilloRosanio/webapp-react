@@ -18,8 +18,8 @@ export default function HomePage() {
 
     // USE-STATE DATA
     const [movies, setMovies] = useState({ movies: [] });
-    const [genres, setGenres] = useState([]);
     const [filterTitle, setFilterTitle] = useState('');
+    const [genres, setGenres] = useState([]);
     const [selectedGenre, setSelectedGenre] = useState('');
 
     // FILTER VALUES HANDLERS
@@ -29,13 +29,13 @@ export default function HomePage() {
 
     const handleGenreChange = (event) => {
         setSelectedGenre(event.target.value);
-        console.log(selectedGenre);
     };
 
     // SEARCH BUTTON
     const handleSearchButtonClick = () => {
         ajaxIndex();
         setFilterTitle('');
+        setSelectedGenre('');
     };
 
     // CLEAR FILTERS
@@ -50,6 +50,11 @@ export default function HomePage() {
         ajaxIndex();
     }, []);
 
+    // GENRES FILTER USE-EFFECT
+    // useEffect(() => {
+    //     ajaxIndex();
+    // }, [selectedGenre]);
+
     // AJAX REQUEST - INDEX
     const ajaxIndex = () => {
         fetch(apiUrlRoot + apiSubPath + '/?title=' + filterTitle + '&genre=' + selectedGenre, {
@@ -58,10 +63,17 @@ export default function HomePage() {
             .then(res => res.json())
             .then((data) => {
                 setMovies(data);
-                setGenres([...new Set(data.movies.flatMap(movie => movie.genre))]);
-                console.log(data);
+
+                if (data.movies == 0) {
+                    setMovies({ movies: ['No results'] });
+                }
+
+                if (genres.length === 0) {
+                    setGenres([...new Set(data.movies.flatMap(movie => movie.genre))]);
+                }
 
                 console.log('AJAX INDEX request: at ' + apiUrlRoot + apiSubPath + '/?title=' + filterTitle + '&genre=' + selectedGenre);
+                console.log(data);
             })
             .catch((error) => {
                 console.log('Error while fetching content')
@@ -99,15 +111,17 @@ export default function HomePage() {
             <div className='resultsSection'>
 
                 {/* CARDS */}
-                {movies?.movies.map(movie =>
-                    <Card
-                        key={movie.id}
-                        id={movie.id}
-                        image={movie.image}
-                        title={movie.title}
-                        vote={movie.vote_avg}
-                    />
-                )}
+                {movies.movies[0] == 'No results' ?
+                    <h3>{`No movies found :(`}</h3> :
+                    movies?.movies.map(movie =>
+                        <Card
+                            key={movie.id}
+                            id={movie.id}
+                            image={movie.image}
+                            title={movie.title}
+                            vote={movie.vote_avg}
+                        />
+                    )}
             </div>
         </div>
     </>
