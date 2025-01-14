@@ -214,6 +214,9 @@ h1 {
 
   padding-top: var(--space-l);
   padding-bottom: var(--space-l);
+
+  border-bottom: 1px solid var(--grey-m);
+  margin-bottom: var(--space-l);
 }
 
 .movieDetailsImageContainer {
@@ -257,6 +260,37 @@ h1 {
   padding-bottom: var(--space-s);
 }
 
+
+
+/******************************************
+  # REVIEWS
+******************************************/
+
+.showMovie h3 {
+  padding-bottom: var(--space-m);
+}
+
+.reviewsContainer {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--space-l);
+  white-space: nowrap;
+  padding-bottom: var(--space-m);
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding-right: var(--space-m);
+  /* margin-right: var(--space-m); */
+  border-right: 2px solid var(--grey-m);
+}
+
+.showMovie .button {
+  margin-top: var(--space-m);
+  margin-bottom: var(--space-l);
+}
 
 
 /******************************************

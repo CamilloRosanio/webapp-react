@@ -49,7 +49,7 @@ export default function MovieDetailsPage() {
     return <>
         <div className="container">
             {movie.id ?
-                <div>
+                <div className='showMovie'>
                     <h1>Movie details</h1>
 
                     <Link to="/" className='link'>
@@ -72,6 +72,24 @@ export default function MovieDetailsPage() {
                             <p>{movie.abstract}</p>
                         </div>
                     </div>
+
+                    {/* REVIEWS */}
+                    <h3>Reviews</h3>
+                    <div className="reviewsContainer">
+                        {movie.reviews.map((review) => (
+
+                            <div key={review.id} className='review'>
+                                <h4>{review.name}</h4>
+                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
+                                <p>{review.text}</p>
+                            </div>
+
+                        ))}
+                    </div>
+
+                    <Link to="/" className='link'>
+                        <button className='button'>Back to List</button>
+                    </Link>
                 </div>
                 :
                 <h1>{`Page not found :(`}</h1>}
