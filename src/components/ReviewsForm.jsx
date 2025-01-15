@@ -104,6 +104,9 @@ export default function ReviewsForm({ movie_id, hideForm, hideReviewForm, ajaxSh
             created_at: '',
             updated_at: '',
         });
+
+        // HIDE FORM
+        hideReviewForm();
     }
 
 
