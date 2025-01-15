@@ -2,9 +2,14 @@
 import { useState } from 'react';
 
 
+// ENV IMPORTS
+const apiUrlRoot = import.meta.env.VITE_APIURL;
+const apiSubPathReviews = import.meta.env.VITE_APISUBPATH_REVIEWS;
+
+
 // COMPONENT EXPORT
 
-export default function ReviewsForm({ movie_id, hideForm, hideReviewForm }) {
+export default function ReviewsForm({ movie_id, hideForm, hideReviewForm, ajaxShow }) {
 
     // FORM FIELDS
     const [formValues, setFormValues] = useState({
@@ -33,44 +38,62 @@ export default function ReviewsForm({ movie_id, hideForm, hideReviewForm }) {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
-    // HANDLER VALUES CHANGES
+    // SET DATE AND TIME VALUES
+    formValues.created_at = formatDateTime();
+    formValues.updated_at = formatDateTime();
+
+
+    // HANDLER VALUES CHANGE
     const handleValuesChange = (e) => {
 
         // TEXT VS CHECKBOX VALIDATION
         const receivedValue = (e.target.type === 'checkbox' ? e.target.checked : e.target.value);
 
-        // SET VALUES
+        // SET PROPERTY VALUE
         setFormValues({
             ...formValues,
-
-            // SINGLE VALUE UPDATE
             [e.target.name]: receivedValue,
         });
     }
 
-    // HALDER FORM SUBMIT
+    // AJAX REQUEST - STORE 
+    const ajaxStore = () => {
+        fetch((apiUrlRoot + apiSubPathReviews + '/'), {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formValues),
+        })
+            .then(res => res.json())
+            .then((data) => {
+                ajaxShow();
+                console.log('AJAX STORE Review request at: ' + apiUrlRoot + apiSubPathReviews + '/');
+            })
+            .catch((error) => {
+                console.log('Error while fetching content')
+            })
+    };
+
+    // HANDLER FORM SUBMIT
     const handleSubmit = (e) => {
 
         // PREVENT DEFAULT PAGE RELOAD
         e.preventDefault();
 
-        // SET VALUES
-        const newReview = {
-            movie_id: movie_id,
-            name: formValues.name,
-            vote: formValues.vote,
-            text: formValues.text,
-            created_at: formatDateTime(),
-            updated_at: formatDateTime(),
-        }
+        // PARSEINT PARAMS
+        formValues.movie_id = parseInt(movie_id);
+        formValues.vote = parseInt(formValues.vote);
 
-        // STORE REVIEW
-        // AJAX REQUEST - STORE
-        const ajaxStore = () => {
-            alert('Store review');
-        };
+        // CALL AJAX REQUEST - STORE
+        ajaxStore()
 
-        alert('Name: ' + newReview.name + ' // Vote: ' + newReview.vote + ' // Text: ' + newReview.text + ' // Created: ' + newReview.created_at + ' // pdated: ' + newReview.updated_at);
+        alert(
+            'Movie ID: (' + movie_id + ') Type: ' + typeof (formValues.movie_id) +
+            '\n Name: (' + formValues.name + ') Type: ' + typeof (formValues.name) +
+            '\n Vote: (' + formValues.vote + ') Type: ' + typeof (formValues.vote) +
+            '\n Text: (' + formValues.text + ') Type: ' + typeof (formValues.text) +
+            '\n Created: (' + formValues.created_at + ') Type: ' + typeof (formValues.created_at) +
+            '\n Updated: (' + formValues.updated_at + ') Type: ' + typeof (formValues.updated_at)
+        );
 
         // RESET VALUES
         setFormValues({
@@ -99,7 +122,7 @@ export default function ReviewsForm({ movie_id, hideForm, hideReviewForm }) {
 
                     {/* VOTE */}
                     <select name='vote' value={formValues.vote} onChange={handleValuesChange} className='input' required >
-                        <option value=''>Vote</option>
+                        <option value='0'>Vote</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
@@ -108,7 +131,7 @@ export default function ReviewsForm({ movie_id, hideForm, hideReviewForm }) {
                     </select>
 
                     {/* TEXT */}
-                    <input type='text' name='text' value={formValues.text} placeholder='Write here' onChange={handleValuesChange} className='input' required />
+                    <input type='text' name='text' value={formValues.text} placeholder='Write review here' onChange={handleValuesChange} className='input flexGrow' required />
                 </div>
 
                 {/* FORM BUTTONS */}

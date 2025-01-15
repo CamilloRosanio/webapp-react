@@ -67,7 +67,7 @@ export default function HomePage() {
                     setGenres([...new Set(data.movies.flatMap(movie => movie.genre))]);
                 }
 
-                console.log('AJAX INDEX request: at ' + apiUrlRoot + apiSubPath + '/?title=' + filterTitle + '&genre=' + selectedGenre);
+                console.log('AJAX INDEX request at: ' + apiUrlRoot + apiSubPath + '/?title=' + filterTitle + '&genre=' + selectedGenre);
                 console.log(data);
             })
             .catch((error) => {

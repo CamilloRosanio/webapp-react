@@ -76,6 +76,7 @@ export default function MovieDetailsPage() {
                         movie_id={movie.id}
                         hideForm={hideForm}
                         hideReviewForm={hideReviewForm}
+                        ajaxShow={ajaxShow}
                     />
 
                     {/* REVIEWS */}

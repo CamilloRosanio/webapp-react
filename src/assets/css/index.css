@@ -384,7 +384,11 @@ p.reviewText {
 }
 
 .reviewFormContainer .input {
-  width: 33%px;
+  min-width: 33%px;
+}
+
+.reviewFormContainer .flexGrow {
+  flex-grow: 1;
 }
 
 .reviewFormButtonsContainer {
