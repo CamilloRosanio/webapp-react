@@ -11,6 +11,8 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 // IMPORT COMPONENTS
 import { voteToStars } from '../assets/utility_functions/voteToStars';
+import MovieDetailsSection from '../components/MovieDetailsSection';
+import ReviewsSection from '../components/ReviewsSection';
 
 
 // COMPONENT EXPORT
@@ -67,36 +69,12 @@ export default function MovieDetailsPage() {
         <div className="container">
             {movie.id ?
                 <div className='showMovie' id='showMovie'>
-                    <h1>Movie details</h1>
 
                     {/* MOVIE DETAILS */}
-                    <div className='movieDetails'>
-
-                        {/* DETAILS IMAGE */}
-                        <div className='movieDetailsImageContainer'>
-                            <img src={`${movie.image}`} alt="" className='movieDetailsImage' />
-                        </div>
-
-                        {/* DETAILS CONTENT */}
-                        <div className='movieDetailsContent'>
-                            <div>
-                                <h2>{movie.title}</h2>
-                                <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                                <p>• {movie.genre}</p>
-                                <p>{movie.abstract}</p>
-                            </div>
-
-                            {/* BUTTONS */}
-                            <div className='movieDetailsButtons'>
-                                <button className='input' onClick={showReviewForm}>Leave review</button>
-
-                                <Link to="/" className='link'>
-                                    <button className='button'>Back to List</button>
-                                </Link>
-                            </div>
-
-                        </div>
-                    </div>
+                    <MovieDetailsSection
+                        movie={movie}
+                        showReviewForm={showReviewForm}
+                    />
 
                     {/* REVIEW FORM */}
                     <div id='reviewForm'>
@@ -108,20 +86,10 @@ export default function MovieDetailsPage() {
                     </div>
 
                     {/* REVIEWS */}
-                    <h3>Reviews</h3>
-                    <div className="reviewsContainer">
-                        {movie.reviews.map((review) => (
-
-                            <div key={review.id} className='review'>
-                                <div className="reviewName">
-                                    <h4>{review.name}</h4>
-                                    <p className='cardStars'>{`${voteToStars(movie.vote_avg)}`}</p>
-                                </div>
-                                <p className='reviewText'>{`${review.text}..`}</p>
-                            </div>
-
-                        ))}
-                    </div>
+                    <ReviewsSection
+                        reviews={movie.reviews}
+                        movie={movie}
+                    />
                 </div>
                 :
                 <h1>{`Page not found :(`}</h1>}

@@ -331,7 +331,7 @@ h1 {
   gap: .5rem;
   padding: var(--space-m);
 
-  min-width: 25vw;
+  min-width: 20vw;
   max-width: 35vw;
   height: auto;
 
