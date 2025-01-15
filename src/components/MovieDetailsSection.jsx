@@ -1,5 +1,5 @@
 // UTILITY
-import { Link } from "react-router";
+import { Link } from 'react-router';
 
 
 // IMPORT COMPONENTS
@@ -16,7 +16,7 @@ export default function MovieDetailsSection({ movie, showReviewForm }) {
 
             {/* DETAILS IMAGE */}
             <div className='movieDetailsImageContainer'>
-                <img src={`${movie.image}`} alt="" className='movieDetailsImage' />
+                <img src={`${movie.image}`} alt='' className='movieDetailsImage' />
             </div>
 
             {/* DETAILS CONTENT */}
@@ -30,10 +30,10 @@ export default function MovieDetailsSection({ movie, showReviewForm }) {
 
                 {/* BUTTONS */}
                 <div className='movieDetailsButtons'>
-                    <button className='input' onClick={showReviewForm}>Leave review</button>
+                    <button className='button' onClick={showReviewForm}>Leave review</button>
 
-                    <Link to="/" className='link'>
-                        <button className='button'>Back to List</button>
+                    <Link to='/' className='link'>
+                        <button className='button secondary'>Back to List</button>
                     </Link>
                 </div>
 

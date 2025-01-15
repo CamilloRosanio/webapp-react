@@ -1,6 +1,5 @@
 // UTILITY
 import { useState, useEffect } from 'react';
-import { Link } from "react-router";
 
 
 // ENV IMPORTS
@@ -9,7 +8,7 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 
 // IMPORT COMPONENTS
-import Card from '../components/Card';
+import MovieCard from '../components/MovieCard';
 
 
 // COMPONENT EXPORT
@@ -50,10 +49,6 @@ export default function HomePage() {
         ajaxIndex();
     }, []);
 
-    // GENRES FILTER USE-EFFECT
-    // useEffect(() => {
-    //     ajaxIndex();
-    // }, [selectedGenre]);
 
     // AJAX REQUEST - INDEX
     const ajaxIndex = () => {
@@ -81,7 +76,7 @@ export default function HomePage() {
     };
 
     return <>
-        <div className="container">
+        <div className='container'>
             <h1>Movies</h1>
 
             {/* FILTERS CONTROL */}
@@ -89,11 +84,11 @@ export default function HomePage() {
                 <div className='filters'>
 
                     {/* FILTER TITLE */}
-                    <input type="text" className='input' placeholder='Filter by title' value={filterTitle} onChange={handleFilterTitleChange} />
+                    <input type='text' className='input' placeholder='Filter by title' value={filterTitle} onChange={handleFilterTitleChange} />
 
                     {/* FILTER GENRE */}
                     <select value={selectedGenre} onChange={handleGenreChange} className='input'>
-                        <option value="">Select genre</option>
+                        <option value=''>Select genre</option>
                         {genres.map((genre, index) => (
                             <option key={index} value={genre}>{genre}</option>
                         ))}
@@ -103,7 +98,7 @@ export default function HomePage() {
 
                 <div className='filters'>
                     <button className='button' onClick={() => clearFilters()}>Clear filters</button>
-                    <button className='button' onClick={() => handleSearchButtonClick()}>Search</button>
+                    <button className='button secondary' onClick={() => handleSearchButtonClick()}>Search</button>
                 </div>
             </div>
 
@@ -114,7 +109,7 @@ export default function HomePage() {
                 {movies.movies[0] == 'No results' ?
                     <h3>{`No movies found :(`}</h3> :
                     movies?.movies.map(movie =>
-                        <Card
+                        <MovieCard
                             key={movie.id}
                             id={movie.id}
                             image={movie.image}

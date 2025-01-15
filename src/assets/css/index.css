@@ -79,7 +79,20 @@ main {
   color: var(--primary-color);
   font-weight: bold;
   padding: .5rem 1rem;
+  border: 2px solid var(--grey-l);
+  border-radius: 25px;
+  background-color: var(--main-bg);
+}
+
+.button.secondary {
   border: 2px solid var(--secondary-l);
+}
+
+.input {
+  cursor: pointer;
+  color: var(--primary-color);
+  padding: .5rem 1rem;
+  border: 2px solid var(--grey-l);
   border-radius: 25px;
   background-color: var(--main-bg);
 }
@@ -148,7 +161,7 @@ h1 {
 
 
 /******************************************
-  # HOME
+# HOME
 ******************************************/
 
 .brand {
@@ -203,7 +216,7 @@ h1 {
 
 
 /******************************************
-  # FILTERS
+# FILTERS
 ******************************************/
 
 .filterControl {
@@ -224,19 +237,10 @@ h1 {
   gap: var(--space-s);
 }
 
-.input {
-  cursor: pointer;
-  color: var(--primary-color);
-  padding: .5rem 1rem;
-  border: 2px solid var(--grey-l);
-  border-radius: 25px;
-  background-color: var(--main-bg);
-}
-
 
 
 /******************************************
-  # MOVIE DETAILS
+# MOVIE DETAILS
 ******************************************/
 
 .showMovie {
@@ -302,14 +306,14 @@ h1 {
   margin-top: var(--space-m);
 }
 
-.movieDetailsButtons .input {
+.showMovie .input {
   font-weight: bold;
 }
 
 
 
 /******************************************
-  # REVIEWS
+# REVIEWS
 ******************************************/
 
 .showMovie h3 {
@@ -358,18 +362,40 @@ p.reviewText {
 
 
 /******************************************
-  # STORE REVIEW FORM
+# STORE REVIEW FORM
 ******************************************/
 
 .reviewFormContainer {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
   margin-bottom: var(--space-l);
+  padding: var(--space-m);
+
+  border: 2px solid var(--secondary);
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  border-bottom-left-radius: 35px;
+}
+
+.reviewFormInputsContainer {
+  display: flex;
+  gap: var(--space-s);
+}
+
+.reviewFormContainer .input {
+  width: 33%px;
+}
+
+.reviewFormButtonsContainer {
+  display: flex;
+  gap: var(--space-s)
 }
 
 
 
 /******************************************
-  # DEBUG
+# DEBUG
 ******************************************/
 
 .debug {

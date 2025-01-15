@@ -1,7 +1,6 @@
 // UTILITY
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Link } from "react-router";
 
 
 // ENV IMPORTS
@@ -10,9 +9,9 @@ const apiSubPath = import.meta.env.VITE_APISUBPATH;
 
 
 // IMPORT COMPONENTS
-import { voteToStars } from '../assets/utility_functions/voteToStars';
 import MovieDetailsSection from '../components/MovieDetailsSection';
 import ReviewsSection from '../components/ReviewsSection';
+import ReviewsForm from '../components/ReviewsForm';
 
 
 // COMPONENT EXPORT
@@ -33,14 +32,14 @@ export default function MovieDetailsPage() {
 
     // AJAX REQUEST - SHOW
     const ajaxShow = () => {
-        fetch(apiUrlRoot + apiSubPath + "/" + id, {
+        fetch(apiUrlRoot + apiSubPath + '/' + id, {
             method: 'GET',
         })
             .then(res => res.json())
             .then((data) => {
                 setMovie(data);
                 // console.log(data);
-                console.log('AJAX SHOW request: at ' + apiUrlRoot + apiSubPath + "/" + id);
+                console.log('AJAX SHOW request: at ' + apiUrlRoot + apiSubPath + '/' + id);
             })
             .catch((error) => {
                 console.log('Error while fetching content')
@@ -56,17 +55,13 @@ export default function MovieDetailsPage() {
 
     const hideReviewForm = () => {
         if (!hideForm) setHideForm(true);
-        const formElement = document.getElementById('showMovie');
-        showMovie.scrollIntoView({ behavior: 'smooth' });
+        const pageTop = document.getElementById('showMovie');
+        pageTop.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // AJAX REQUEST - STORE
-    const ajaxStore = () => {
-        alert('Store review');
-    }
 
     return <>
-        <div className="container">
+        <div className='container'>
             {movie.id ?
                 <div className='showMovie' id='showMovie'>
 
@@ -77,13 +72,11 @@ export default function MovieDetailsPage() {
                     />
 
                     {/* REVIEW FORM */}
-                    <div id='reviewForm'>
-                        <div className={hideForm ? 'reviewFormContainer hidden' : 'reviewFormContainer'}>
-                            ciao
-
-                            <button className='button' onClick={hideReviewForm}>Close</button>
-                        </div>
-                    </div>
+                    <ReviewsForm
+                        movie_id={movie.id}
+                        hideForm={hideForm}
+                        hideReviewForm={hideReviewForm}
+                    />
 
                     {/* REVIEWS */}
                     <ReviewsSection

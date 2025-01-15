@@ -1,5 +1,5 @@
 // UTILITY
-import { Link } from "react-router";
+import { Link } from 'react-router';
 
 
 // IMPORT COMPONENTS
@@ -8,14 +8,14 @@ import { voteToStars } from '../assets/utility_functions/voteToStars';
 
 // COMPONENT EXPORT
 
-export default function Footer({ id, image, title, vote }) {
+export default function MovieCard({ id, image, title, vote }) {
     return <>
-        <Link to={"/" + id}>
+        <Link to={'/' + id}>
             <div className='card' key={id}>
 
                 {/* CARD IMAGE */}
                 <div className='cardImageContainer'>
-                    <img src={`${image}`} alt="" className='cardImage' />
+                    <img src={`${image}`} alt='' className='cardImage' />
                 </div>
 
                 {/* CARD CONTENT */}
