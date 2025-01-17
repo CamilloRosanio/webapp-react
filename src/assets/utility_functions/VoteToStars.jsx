@@ -1,7 +1,7 @@
 // UTILITY FUNCTION - VOTE TO STARS
 function voteToStars(vote) {
 
-    if (!vote || vote == null) {
+    if (!vote || vote == null || vote == 0 || vote === undefined) {
         return '0 votes';
     }
 
