@@ -36,10 +36,17 @@
   --grey-m: rgb(77, 77, 77);
   --grey-d: rgb(43, 43, 43);
 
-  /* RELATED VARIABLES */
-  --container: 1000px;
-  --results-gap: calc(calc(var(--container) / 100)*5);
-  --card-w-l: calc(calc(var(--container) / 100)*30);
+  --container-l: 1000px;
+  --container-m: 750px;
+  --container-s: 300px;
+
+  --results-gap-l: 50px;
+  --results-gap-m: 40px;
+  --results-gap-s: 20px;
+
+  --card-w-l: 299px;
+  --card-w-m: 300px;
+  --card-w-s: 300px;
 }
 
 
@@ -59,7 +66,7 @@ main {
 }
 
 .container {
-  width: var(--container);
+  width: var(--container-l);
   margin: auto;
 }
 
@@ -134,8 +141,6 @@ header {
   background-color: var(--dark-bg);
   font-size: 1.4rem;
   font-weight: 700;
-
-  width: 100vw;
   padding-top: var(--space-s);
   padding-bottom: var(--space-s);
 }
@@ -167,7 +172,7 @@ h1 {
 .resultsSection {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--results-gap);
+  gap: var(--results-gap-l);
   padding-top: var(--space-l);
   padding-bottom: var(--space-l);
 }
@@ -246,8 +251,10 @@ h1 {
   display: flex;
   gap: var(--space-l);
 
-  border-bottom: 1px solid var(--grey-m);
+  padding-top: var(--space-l);
   padding-bottom: var(--space-l);
+
+  border-bottom: 1px solid var(--grey-m);
   margin-bottom: var(--space-l);
 }
 
@@ -395,133 +402,19 @@ p.reviewText {
 # MEDIAQUERY
 ******************************************/
 
-/* DESKTOP FIRST ORIENTED */
+@media screen and (max-width:1000px) {
 
-
-/********** SCREEN MAX 1200 **********/
-
-@media screen and (max-width:1200px) {
-
-  :root {
-    /* RELATED VARIABLES */
-    --container: 80vw;
-  }
-
-  .movieDetailsImageContainer {
-    width: 30vw;
-  }
-
-  .review {
-    min-width: 45%;
-    max-width: 60%;
+  body {
+    background-color: red;
   }
 }
-
-
-/********** SCREEN MAX 800 **********/
-
-@media screen and (max-width:800px) {
-
-  :root {
-    /* RELATED VARIABLES */
-    --results-gap: calc(calc(var(--container) / 100)*6);
-    --card-w-l: calc(calc(var(--container) / 100)*47);
-  }
-
-  h1 {
-    padding-top: var(--space-s);
-    padding-bottom: var(--space-s);
-  }
-
-  .filterControl {
-    flex-direction: column;
-  }
-
-  .filters.fields {
-    flex-direction: column;
-    align-items: start;
-    margin-bottom: var(--space-s);
-  }
-
-  .filters.buttons {
-    justify-content: start;
-  }
-
-  .filters .input {
-    width: 100%;
-  }
-
-  .filters .button {
-    width: 30%;
-  }
-
-  .movieDetailsImageContainer {
-    width: 50vw;
-  }
-
-  .reviewsContainer {
-    gap: var(--space-m);
-  }
-
-  .review {
-    min-width: 70%;
-    max-width: 80%;
-  }
-}
-
-
-/********** SCREEN MAX 700 **********/
 
 @media screen and (max-width:700px) {
 
-  .movieDetails {
-    flex-direction: column;
-  }
-
-  .movieDetailsImageContainer {
-    width: 100%;
+  body {
+    background-color: rgb(0, 255, 55);
   }
 }
-
-
-/********** SCREEN MAX 500 **********/
-
-@media screen and (max-width:500px) {
-
-  :root {
-    /* RELATED VARIABLES */
-    --results-gap: calc(calc(var(--container) / 100)*10);
-    --card-w-l: var(--container);
-  }
-
-  .filters.buttons {
-    justify-content: space-between;
-    gap: 4%;
-  }
-
-  .filters .button {
-    width: 48%;
-  }
-
-  .movieDetailsButtons {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .review {
-    min-width: 82%;
-    max-width: 90%;
-    gap: var(--space-s);
-    padding: calc(var(--space-s)*1.5);
-  }
-
-  .reviewName {
-    flex-direction: column;
-    align-items: start;
-    gap: var(--space-s);
-  }
-}
-
 
 
 /******************************************

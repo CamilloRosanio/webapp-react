@@ -81,7 +81,7 @@ export default function HomePage() {
 
             {/* FILTERS CONTROL */}
             <div className='filterControl'>
-                <div className='filters'>
+                <div className='filters fields'>
 
                     {/* FILTER TITLE */}
                     <input type='text' className='input' placeholder='Filter by title' value={filterTitle} onChange={handleFilterTitleChange} />
@@ -96,8 +96,8 @@ export default function HomePage() {
 
                 </div>
 
-                <div className='filters'>
-                    <button className='button' onClick={() => clearFilters()}>Clear filters</button>
+                <div className='filters buttons'>
+                    <button className='button' onClick={() => clearFilters()}>Clear all</button>
                     <button className='button secondary' onClick={() => handleSearchButtonClick()}>Search</button>
                 </div>
             </div>
